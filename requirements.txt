@@ -1,2 +1,4 @@
 fastapi>=0.66, <0.67
 uvicorn>=0.14, <0.15
+sqlalchemy>=5, <6
+aiosqlite>=0.17, <0.18
