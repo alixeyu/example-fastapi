@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 
 from db.base import init_base
-from heroes.endpoints import router as heroes_router
+from endpoints import heroes
 
 
 app = FastAPI()
-app.include_router(heroes_router, prefix='/heroes', tags=['heroes'])
+app.include_router(heroes.router, prefix='/heroes', tags=['heroes'])
 
 init_base()
 
