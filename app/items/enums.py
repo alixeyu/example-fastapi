@@ -1,7 +1,7 @@
 import enum
 
 
-class ItemKind(enum.Enum):
+class ItemKind(str, enum.Enum):
     ROD = 'rod'
     ARMOR = 'armor'
     WAND = 'wand'
@@ -13,7 +13,7 @@ class ItemKind(enum.Enum):
     WONDROUS = 'wondrous item'
 
 
-class ItemRarity(enum.Enum):
+class ItemRarity(str, enum.Enum):
     COMMON = 'common'
     UNCOMMON = 'uncommon'
     RARE = 'rare'
@@ -21,7 +21,7 @@ class ItemRarity(enum.Enum):
     LEGANDARY = 'legendary'
 
 
-class ItemCurrency(enum.Enum):
+class ItemCurrency(str, enum.Enum):
     COPPER = 'copper'
     SILVER = 'silver'
     GOLD = 'gold'
