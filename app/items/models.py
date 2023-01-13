@@ -1,28 +1,16 @@
-from pydantic import BaseModel
+from sqlalchemy import Column, Integer, String, Boolean
 
-from .enums import ItemCurrency, ItemKind, ItemRarity
-
-
-class ItemBase(BaseModel):
-    name: str
-    kind: ItemKind
-    rarity: ItemRarity
-    attunement: bool = False
-    min_price: int
-    max_price: int
-    currency: ItemCurrency
-
-    @property
-    def price(self):
-        return (self.min_price, self.max_price, self.currency)
+from app.db import BaseDatabaseClass
 
 
-class ItemIn(ItemBase):
-    pass
+class Item(BaseDatabaseClass):
+    __tablename__ = 'items'
 
-
-class Item(BaseModel):
-    id: int
-
-    class Config:
-        orm_mode = True
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    kind = Column(String)
+    rarity = Column(String)
+    attunement = Column(Boolean, default=False)
+    min_price = Column(Integer)
+    max_price = Column(Integer)
+    currency = Column(String)
