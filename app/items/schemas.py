@@ -21,6 +21,16 @@ class ItemCreate(ItemBase):
     pass
 
 
+class ItemUpdate(ItemBase):
+    name: str = ''
+    kind: ItemKind = ItemKind.ROD
+    rarity: ItemRarity = ItemRarity.COMMON
+    attunement: bool = False
+    min_price: int = 0
+    max_price: int = 0
+    currency: ItemCurrency = ItemCurrency.COPPER
+
+
 class Item(ItemBase):
     id: int
 

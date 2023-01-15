@@ -7,7 +7,7 @@ from app.db import SessionLocal
 from . import crud
 from . import schemas
 
-router = APIRouter()
+router = APIRouter(tags=['items'])
 
 def get_db():
     db = SessionLocal()
@@ -35,3 +35,18 @@ async def read_item(item_id: int, db: Session = Depends(get_db)):
 @router.get('/items', response_model=List[schemas.Item])
 async def read_items(skip: int, limit: int, db: Session = Depends(get_db)):
     return crud.get_items(db=db, skip=skip, limit=limit)
+
+
+@router.patch('/items/{item_id}', response_model=schemas.Item)
+async def update_item(item_id: int, item: schemas.ItemUpdate, db: Session = Depends(get_db)):
+    db_item = crud.get_item(db=db, item_id=item_id)
+
+    if db_item is None:
+        raise HTTPException(status_code=400, detail=f'Item with id {item_id} not found.')
+
+    return crud.update_item(db=db, item=db_item, updates=item)
+
+
+@router.delete('/items/{item_id}')
+async def delete_item(item_id: int, db: Session = Depends(get_db)):
+    return crud.delete_item(db=db, item_id=item_id)
