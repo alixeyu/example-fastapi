@@ -9,6 +9,7 @@ from . import schemas
 
 router = APIRouter(tags=['items'])
 
+
 def get_db():
     db = SessionLocal()
     try:
