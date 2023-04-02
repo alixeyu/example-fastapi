@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  efapi-backend:
+    image: efapi-backend
+    hostname: efapi-backend
+    container_name: efapi-backend
+    platform: linux/amd64
+    volumes:
+      - ../app:/app
+    build:
+      context: ../
+      dockerfile: devops/Dockerfile
+    ports:
+      - "8000:80"
+    labels:
+      - SERVICE_NAME=efapi-backend

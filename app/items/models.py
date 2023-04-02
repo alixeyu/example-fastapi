@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean
 
-from app.db import BaseDatabaseClass
+from db import BaseDatabaseClass
 
 
 class Item(BaseDatabaseClass):

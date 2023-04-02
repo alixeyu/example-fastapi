@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from pydantic import BaseModel
 
 from .enums import ItemCurrency, ItemKind, ItemRarity
@@ -13,7 +15,7 @@ class ItemBase(BaseModel):
     currency: ItemCurrency
 
     @property
-    def price(self):
+    def price(self) -> Tuple[int, int, ItemCurrency]:
         return (self.min_price, self.max_price, self.currency)
 
 
