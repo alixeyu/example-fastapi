@@ -24,7 +24,7 @@ class ItemCreate(ItemBase):
 
 
 class ItemUpdate(ItemBase):
-    name: str = ''
+    name: str = ""
     kind: ItemKind = ItemKind.ROD
     rarity: ItemRarity = ItemRarity.COMMON
     attunement: bool = False

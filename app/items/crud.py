@@ -21,7 +21,9 @@ def get_items(db: Session, skip: int = 0, limit: int = 100) -> List[models.Item]
     return db.query(models.Item).offset(offset=skip).limit(limit=limit).all()
 
 
-def update_item(db: Session, item: models.Item, updates: schemas.ItemUpdate) -> models.Item:
+def update_item(
+    db: Session, item: models.Item, updates: schemas.ItemUpdate
+) -> models.Item:
     udpated_data = updates.dict(exclude_unset=True)
 
     for field, value in udpated_data.items():

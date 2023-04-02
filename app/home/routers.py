@@ -2,9 +2,9 @@ from typing import Dict
 
 from fastapi import APIRouter
 
-router = APIRouter(tags=['home'])
+router = APIRouter(tags=["home"])
 
 
-@router.get('/')
+@router.get("/")
 def read_root() -> Dict[str, str]:
-    return {'details': 'Home page'}
+    return {"details": "Home page"}

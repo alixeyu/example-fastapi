@@ -4,7 +4,7 @@ from db import BaseDatabaseClass
 
 
 class Item(BaseDatabaseClass):
-    __tablename__ = 'items'
+    __tablename__ = "items"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
